@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@loukys.store",
+      "password": "admin123",
+      "role": "admin",
+      "balance": 1000000,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "username": "customer1",
+      "email": "customer@example.com",
+      "password": "customer123",
+      "role": "user",
+      "balance": 50000,
+      "createdAt": "2024-01-02T00:00:00Z",
+      "status": "active"
+    }
+  ]
+}
