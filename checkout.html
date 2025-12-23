@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Loukys Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Same navigation as index.html -->
+    </nav>
+
+    <main class="checkout-page">
+        <div class="container">
+            <!-- Progress Steps -->
+            <div class="checkout-steps">
+                <div class="step active">
+                    <div class="step-circle">1</div>
+                    <span>Cart</span>
+                </div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <span>Payment</span>
+                </div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <span>Complete</span>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <!-- Cart Items -->
+                <div class="checkout-section">
+                    <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+                    <div id="cart-items">
+                        <!-- Cart items loaded by JS -->
+                    </div>
+                    <div class="cart-summary">
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Service Fee</span>
+                            <span>Rp 0</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="total">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="checkout-section">
+                    <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method active">
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <h3>QRIS</h3>
+                                <p>Pay with DANA, OVO, GoPay, etc.</p>
+                            </div>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i>
+                            <div>
+                                <h3>Bank Transfer</h3>
+                                <p>Transfer to BCA/Mandiri/BNI</p>
+                            </div>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fab fa-d-and-d"></i>
+                            <div>
+                                <h3>DANA</h3>
+                                <p>Direct DANA payment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-instructions">
+                        <h3><i class="fas fa-info-circle"></i> Instructions:</h3>
+                        <ol>
+                            <li>Select payment method</li>
+                            <li>Complete payment</li>
+                            <li>Code will be delivered instantly</li>
+                            <li>Check your dashboard for code</li>
+                        </ol>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg" onclick="processPayment()">
+                        <i class="fas fa-lock"></i>
+                        COMPLETE PAYMENT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Payment</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="qr-container">
+                    <canvas id="qr-code"></canvas>
+                </div>
+                <div class="payment-info">
+                    <div class="info-item">
+                        <span>Order ID:</span>
+                        <span id="order-id">ORD-123456</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Amount:</span>
+                        <span id="payment-amount">Rp 0</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Time Left:</span>
+                        <span id="timer" class="timer">15:00</span>
+                    </div>
+                </div>
+                <div class="payment-steps">
+                    <h3><i class="fas fa-mobile-alt"></i> How to Pay:</h3>
+                    <ol>
+                        <li>Open your e-wallet app</li>
+                        <li>Tap "Scan QR Code"</li>
+                        <li>Point camera at QR above</li>
+                        <li>Confirm and complete payment</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</body>
+</html>
