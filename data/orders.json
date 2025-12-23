@@ -1,0 +1,22 @@
+{
+  "orders": [
+    {
+      "id": "ORD-123456",
+      "userId": "2",
+      "items": [
+        {
+          "id": "vip7d",
+          "name": "VIP 7 Days",
+          "price": 20000,
+          "quantity": 1
+        }
+      ],
+      "total": 20000,
+      "paymentMethod": "qris",
+      "status": "completed",
+      "code": "RF7D-ABCD-EFGH-IJKL",
+      "date": "2024-01-15T10:30:00Z",
+      "completedAt": "2024-01-15T10:31:00Z"
+    }
+  ]
+}
