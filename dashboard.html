@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Loukys Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>LOUKYS</span>STORE
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html"><i class="fas fa-shopping-bag"></i> Products</a>
+                <a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="user-dropdown">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                        <span id="username-display">Loading...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="dashboard.html?tab=orders"><i class="fas fa-shopping-bag"></i> My Orders</a>
+                        <a href="dashboard.html?tab=profile"><i class="fas fa-user"></i> Profile</a>
+                        <a href="dashboard.html?tab=wallet"><i class="fas fa-wallet"></i> Wallet</a>
+                        <hr>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="user-welcome">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <h1>Welcome back, <span id="welcome-name">User</span>!</h1>
+                        <p class="user-email" id="user-email">user@example.com</p>
+                        <div class="user-stats">
+                            <span class="stat">
+                                <i class="fas fa-shopping-bag"></i>
+                                <strong id="order-count">0</strong> orders
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-star"></i>
+                                Member since <span id="join-date">2024</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>
+                        Shop Now
+                    </a>
+                    <button class="btn btn-outline" id="refresh-dashboard">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Dashboard Tabs -->
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="overview">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Overview
+                </button>
+                <button class="tab-btn" data-tab="orders">
+                    <i class="fas fa-shopping-bag"></i>
+                    My Orders
+                </button>
+                <button class="tab-btn" data-tab="profile">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </button>
+                <button class="tab-btn" data-tab="wallet">
+                    <i class="fas fa-wallet"></i>
+                    Wallet
+                </button>
+                <button class="tab-btn" data-tab="security">
+                    <i class="fas fa-shield-alt"></i>
+                    Security
+                </button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="dashboard-content">
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="tab-content active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-orders-dash">0</h3>
+                                <p>Total Orders</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-spent">Rp 0</h3>
+                                <p>Total Spent</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="success-rate">100%</h3>
+                                <p>Success Rate</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="avg-delivery">0s</h3>
+                                <p>Avg. Delivery Time</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Orders -->
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-history"></i> Recent Orders</h2>
+                            <a href="dashboard.html?tab=orders" class="section-action">
+                                View All <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="orders-list" id="recent-orders-list">
+                            <!-- Orders will be loaded here -->
+                            <div class="loading-orders">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading orders...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="dashboard-section">
+                        <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                        <div class="quick-actions-grid">
+                            <a href="products.html" class="quick-action">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Buy More Codes</span>
+                                <p>Add more Redfinger codes</p>
+                            </a>
+                            <a href="dashboard.html?tab=profile" class="quick-action">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Update Profile</span>
+                                <p>Edit your information</p>
+                            </a>
+                            <a href="#" class="quick-action" id="refer-friend">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Refer a Friend</span>
+                                <p>Get bonus for referrals</p>
+                            </a>
+                            <a href="help.html" class="quick-action">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Get Help</span>
+                                <p>Need assistance?</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orders Tab -->
+                <div id="orders-tab" class="tab-content">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-shopping-bag"></i> My Orders</h2>
+                            <div class="order-filters">
+                                <select id="order-filter">
+                                    <option value="all">All Orders</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                                <button class="btn btn-outline" id="export-orders">
+                                    <i class="fas fa-download"></i>
+                                    Export
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="orders-table-container">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Product</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body">
+                                    <!-- Orders will be loaded here -->
+                                </tbody>
+                            </table>
+                            
+                            <div class="no-orders" id="no-orders-message">
+                                <i class="fas fa-shopping-bag"></i>
+                                <h3>No orders yet</h3>
+                                <p>Start shopping to see your orders here</p>
+                                <a href="products.html" class="btn btn-primary">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Browse Products
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Tab -->
+                <div id="profile-tab" class="tab-content">
+                    <div class="dashboard-section">
+                        <h2><i class="fas fa-user"></i> Profile Information</h2>
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-username">Username</label>
+                                    <input type="text" id="profile-username" disabled>
+                                    <div class="form-help">Username cannot be changed</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-email">Email Address</label>
+                                    <input type="email" id="profile-email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-fullname">Full Name</label>
+                                <input type="text" id="profile-fullname" placeholder="Your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-phone">Phone Number</label>
+                                <input type="tel" id="profile-phone" placeholder="+62 812-3456-7890">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-bio">Bio</label>
+                                <textarea id="profile-bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    Save Changes
+                                </button>
+                                <button type="button" class="btn btn-outline" id="cancel-edit">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h2><i class="fas fa-cog"></i> Account Settings</h2>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Email Notifications</h4>
+                                    <p>Receive updates about your orders</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="email-notifications" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Promotional Emails</h4>
+                                    <p>Receive special offers and discounts</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="promo-emails" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Add extra security to your account</p>
+                                </div>
+                                <a href="dashboard.html?tab=security" class="btn btn-outline">
+                                    Enable
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wallet Tab -->
+                <div id="wallet-tab" class="tab-content">
+                    <div class="wallet-overview">
+                        <div class="wallet-balance">
+                            <div class="balance-info">
+                                <h3>Current Balance</h3>
+                                <h1 id="wallet-balance">Rp 0</h1>
+                                <p>Available for purchases</p>
+                            </div>
+                            <div class="balance-actions">
+                                <button class="btn btn-primary" id="topup-wallet">
+                                    <i class="fas fa-plus"></i>
+                                    Top Up
+                                </button>
+                                <button class="btn btn-outline" id="withdraw-wallet">
+                                    <i class="fas fa-arrow-up"></i>
+                                    Withdraw
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="wallet-stats">
+                            <div class="stat">
+                                <i class="fas fa-arrow-down"></i>
+                                <div>
+                                    <h4 id="total-deposits">Rp 0</h4>
+                                    <p>Total Deposits</p>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-arrow-up"></i>
+                                <div>
+                                    <h4 id="total-withdrawals">Rp 0</h4>
+                                    <p>Total Withdrawals</p>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-exchange-alt"></i>
+                                <div>
+                                    <h4 id="total-transactions">0</h4>
+                                    <p>Total Transactions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-history"></i> Transaction History</h2>
+                            <button class="btn btn-outline" id="export-transactions">
+                                <i class="fas fa-download"></i>
+                                Export CSV
+                            </button>
+                        </div>
+                        
+                        <div class="transactions-list" id="transactions-list">
+                            <!-- Transactions will be loaded here -->
+                            <div class="no-transactions">
+                                <i class="fas fa-wallet"></i>
+                                <h3>No transactions yet</h3>
+                                <p>Your transaction history will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Security Tab -->
+                <div id="security-tab" class="tab-content">
+                    <div class="dashboard-section">
+                        <h2><i class="fas fa-shield-alt"></i> Security Settings</h2>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h4><i class="fas fa-lock"></i> Change Password</h4>
+                                <p>Update your account password regularly</p>
+                            </div>
+                            <button class="btn btn-primary" id="change-password-btn">
+                                Change Password
+                            </button>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h4><i class="fas fa-mobile-alt"></i> Two-Factor Authentication</h4>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="2fa-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h4><i class="fas fa-desktop"></i> Active Sessions</h4>
+                                <p>Manage devices logged into your account</p>
+                            </div>
+                            <button class="btn btn-outline" id="view-sessions">
+                                View Sessions
+                            </button>
+                        </div>
+                        
+                        <div class="security-item danger">
+                            <div class="security-info">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Delete Account</h4>
+                                <p>Permanently delete your account and all data</p>
+                            </div>
+                            <button class="btn btn-danger" id="delete-account">
+                                Delete Account
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Password Change Modal -->
+    <div id="password-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-lock"></i> Change Password</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required minlength="6">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Update Password
+                        </button>
+                        <button type="button" class="btn btn-outline modal-close">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-gamepad"></i>
+                        <span>LOUKYS</span>STORE
+                    </a>
+                    <p>Premium Redfinger Code Store with instant delivery and secure payment.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="products.html">Products</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="help.html">Help Center</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> support@loukys.store</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Support</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loukys Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
