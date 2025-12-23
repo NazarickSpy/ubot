@@ -1,40 +1,89 @@
-// Admin functionality
-class Admin {
-    constructor() {
-        this.init();
+// Update pada CheckoutSystem class - paymentSuccess method:
+paymentSuccess() {
+    // Clear timer
+    if (this.timerInterval) {
+        clearInterval(this.timerInterval);
     }
-
-    init() {
-        this.loadStats();
-        this.loadRecentOrders();
-        this.loadStock();
-        this.setupEventListeners();
+    
+    // Get random code from product stock
+    const code = this.getRandomCodeFromStock();
+    
+    if (!code) {
+        this.showNotification('Error: No codes available in stock!', 'error');
+        this.hidePaymentModal();
+        return;
     }
+    
+    // Create order record with actual code
+    this.createOrder(code);
+    
+    // Show success message
+    this.showNotification('Payment successful! Code delivered.', 'success');
+    
+    // Hide modal
+    this.hidePaymentModal();
+    
+    // Redirect to success page with code
+    setTimeout(() => {
+        window.location.href = `dashboard.html?success=true&order=${this.orderId}&code=${encodeURIComponent(code)}`;
+    }, 2000);
+}
 
-    loadStats() {
-        const orders = JSON.parse(localStorage.getItem('orders')) || [];
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const products = JSON.parse(localStorage.getItem('products')) || { products: [] };
-        
-        // Calculate totals
-        const totalOrders = orders.length;
-        const totalRevenue = orders.reduce((sum, order) => sum + (order.total || 0), 0);
-        const totalUsers = users.length;
-        const lowStock = products.products?.filter(p => p.stock < 10).length || 0;
-        
-        // Update DOM
-        document.getElementById('total-orders').textContent = totalOrders;
-        document.getElementById('total-revenue').textContent = `Rp ${totalRevenue.toLocaleString()}`;
-        document.getElementById('total-users').textContent = totalUsers;
-        document.getElementById('low-stock').textContent = lowStock;
+getRandomCodeFromStock() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || { products: [] };
+    
+    // For simplicity, get first item from cart
+    if (cart.length === 0) return null;
+    
+    const cartItem = cart[0];
+    const product = products.products.find(p => p.id === cartItem.id);
+    
+    if (!product || !product.codes || product.codes.length === 0) {
+        return null;
     }
+    
+    // Get and remove first code from array
+    const code = product.codes.shift();
+    
+    // Update stock count
+    product.stock = product.codes.length;
+    
+    // Save updated products
+    localStorage.setItem('products', JSON.stringify(products));
+    
+    return code;
+}
 
-    loadRecentOrders() {
-        const orders = JSON.parse(localStorage.getItem('orders')) || [];
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        
-        const container = document.getElementById('recent-orders');
-        if (!container) return;
+createOrder(code) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    
+    const order = {
+        id: this.orderId,
+        paymentId: this.paymentId,
+        userId: user?.id,
+        username: user?.username,
+        items: [...cart],
+        total: this.calculateTotal(),
+        paymentMethod: this.paymentMethod,
+        status: 'completed',
+        code: code, // ACTUAL CODE HERE
+        date: new Date().toISOString(),
+        deliveredAt: new Date().toISOString()
+    };
+    
+    // Add to orders
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    
+    // Clear cart
+    localStorage.removeItem('cart');
+    cartManager.updateCartCount();
+    
+    return order;
+}        if (!container) return;
         
         // Get last 5 orders
         const recentOrders = orders.slice(-5).reverse();
