@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Loukys Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Same navigation as index.html -->
+    </nav>
+
+    <main class="products-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Redfinger Products</h1>
+                <p>Choose your premium package</p>
+            </div>
+
+            <div class="products-filter">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search products...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="vip7d">VIP 7 Days</button>
+                    <button class="filter-btn" data-filter="vip30d">VIP 30 Days</button>
+                    <button class="filter-btn" data-filter="vip90d">VIP 90 Days</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="all-products">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
