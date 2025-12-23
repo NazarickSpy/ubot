@@ -179,42 +179,146 @@
         </div>
     </main>
 
-    <!-- Product Modal -->
-    <div id="product-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Add/Edit Product</h2>
-                <button class="modal-close">&times;</button>
+    <!-- Add Codes Modal -->
+<div id="add-codes-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-plus-circle"></i> Add Codes</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="product-info mb-3"></div>
+            
+            <form id="add-codes-form">
+                <div class="form-group">
+                    <label for="codes-input">
+                        <i class="fas fa-key"></i> Enter Codes (one per line or comma separated)
+                    </label>
+                    <textarea 
+                        id="codes-input" 
+                        rows="10" 
+                        placeholder="RF-ABCD-1234-EFGH
+RF-WXYZ-5678-IJKL
+RF-MNOP-9012-QRST"
+                        required
+                    ></textarea>
+                    <div class="form-help">
+                        <i class="fas fa-info-circle"></i>
+                        Each line or comma-separated value will be added as a unique code
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary modal-close">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Add Codes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add Product Modal -->
+<div id="add-product-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-box"></i> Add New Product</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" placeholder="VIP 7 Days" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-price">Price (Rp)</label>
+                        <input type="number" id="product-price" placeholder="20000" required min="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-type">Type</label>
+                        <select id="product-type" required>
+                            <option value="">Select Type</option>
+                            <option value="VIP7D">VIP 7 Days</option>
+                            <option value="VIP30D">VIP 30 Days</option>
+                            <option value="VIP90D">VIP 90 Days</option>
+                            <option value="VIP365D">VIP 365 Days</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-desc">Description</label>
+                    <textarea id="product-desc" rows="3" placeholder="Redfinger VIP Code..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary modal-close">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Save Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Order Detail Modal -->
+<div id="order-detail-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-receipt"></i> Order Details</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="order-info">
+                <div class="info-row">
+                    <span>Order ID:</span>
+                    <span class="order-id"></span>
+                </div>
+                <div class="info-row">
+                    <span>Customer:</span>
+                    <span class="order-customer"></span>
+                </div>
+                <div class="info-row">
+                    <span>Total:</span>
+                    <span class="order-total"></span>
+                </div>
+                <div class="info-row">
+                    <span>Payment Method:</span>
+                    <span class="order-method"></span>
+                </div>
+                <div class="info-row">
+                    <span>Status:</span>
+                    <span class="order-status"></span>
+                </div>
+                <div class="info-row">
+                    <span>Date:</span>
+                    <span class="order-date"></span>
+                </div>
             </div>
-            <div class="modal-body">
-                <form id="product-form">
-                    <div class="form-group">
-                        <label>Product Name</label>
-                        <input type="text" id="product-name" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input type="number" id="product-price" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Stock</label>
-                            <input type="number" id="product-stock" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea id="product-desc" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Features (comma separated)</label>
-                        <textarea id="product-features" rows="2" placeholder="Feature 1, Feature 2, Feature 3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Product</button>
-                </form>
+            
+            <div class="order-items-section">
+                <h4><i class="fas fa-shopping-cart"></i> Items</h4>
+                <div class="order-items"></div>
+            </div>
+            
+            <div class="order-code" style="display: none;">
+                <hr>
+                <div class="code-display-container"></div>
             </div>
         </div>
     </div>
+</div>
 
     <script src="js/main.js"></script>
     <script src="js/admin.js"></script>
