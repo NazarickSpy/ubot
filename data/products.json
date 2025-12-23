@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": "vip7d",
+      "name": "VIP 7 Days",
+      "description": "Redfinger VIP Code 7 Days Access",
+      "price": 20000,
+      "originalPrice": 25000,
+      "stock": 150,
+      "type": "VIP7D",
+      "category": "redfinger",
+      "features": ["Premium Access", "No Ads", "Priority Support", "Auto-renewal"],
+      "status": "active",
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "vip30d",
+      "name": "VIP 30 Days",
+      "description": "Redfinger VIP Code 30 Days Access",
+      "price": 60000,
+      "originalPrice": 75000,
+      "stock": 85,
+      "type": "VIP30D",
+      "category": "redfinger",
+      "features": ["All VIP Features", "24/7 Support", "Exclusive Content", "Priority Queue"],
+      "status": "active",
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "vip90d",
+      "name": "VIP 90 Days",
+      "description": "Redfinger VIP Code 90 Days Access",
+      "price": 150000,
+      "originalPrice": 180000,
+      "stock": 30,
+      "type": "VIP90D",
+      "category": "redfinger",
+      "features": ["Best Value", "All Features", "Priority Everything", "Dedicated Support"],
+      "status": "active",
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "vip365d",
+      "name": "VIP 365 Days",
+      "description": "Redfinger VIP Code 1 Year Access",
+      "price": 500000,
+      "originalPrice": 600000,
+      "stock": 15,
+      "type": "VIP365D",
+      "category": "redfinger",
+      "features": ["Ultimate Package", "Lifetime Updates", "VIP Badge", "Custom Support"],
+      "status": "active",
+      "createdAt": "2024-01-01T00:00:00Z"
+    }
+  ]
+}
