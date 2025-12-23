@@ -94,4 +94,150 @@
                                 <span>Subtotal</span>
                                 <span id="summary-subtotal">Rp 0</span>
                             </div>
-                            <
+                            <div class="summary-row">
+                                <span>Service Fee</span>
+                                <span>Rp 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span>Rp 0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="summary-total">Rp 0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-actions">
+                            <a href="checkout.html" class="btn btn-primary btn-block" id="checkout-btn">
+                                <i class="fas fa-lock"></i>
+                                Proceed to Checkout
+                            </a>
+                            <a href="products.html" class="btn btn-outline btn-block">
+                                <i class="fas fa-arrow-left"></i>
+                                Continue Shopping
+                            </a>
+                        </div>
+                        
+                        <div class="payment-methods">
+                            <p><strong>Accepted Payment Methods:</strong></p>
+                            <div class="payment-icons">
+                                <i class="fab fa-cc-visa" title="Visa"></i>
+                                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                                <i class="fas fa-qrcode" title="QRIS"></i>
+                                <i class="fab fa-d-and-d" title="DANA"></i>
+                                <i class="fab fa-cc-paypal" title="PayPal"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Promo Code -->
+                    <div class="promo-card">
+                        <h4><i class="fas fa-tag"></i> Have a promo code?</h4>
+                        <div class="promo-input">
+                            <input type="text" id="promo-code" placeholder="Enter promo code">
+                            <button class="btn btn-primary" id="apply-promo">
+                                Apply
+                            </button>
+                        </div>
+                        <div class="promo-list">
+                            <p class="promo-title">Available Promos:</p>
+                            <div class="promo-item">
+                                <span class="promo-code">WELCOME10</span>
+                                <span class="promo-desc">10% off first order</span>
+                            </div>
+                            <div class="promo-item">
+                                <span class="promo-code">REDFINGER20</span>
+                                <span class="promo-desc">20% off Redfinger codes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Badge -->
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Secure Checkout</h4>
+                            <p>Your payment information is encrypted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recently Viewed -->
+            <div class="recently-viewed">
+                <h2><i class="fas fa-eye"></i> Recently Viewed</h2>
+                <div class="products-grid" id="recently-viewed">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-gamepad"></i>
+                        <span>LOUKYS</span>STORE
+                    </a>
+                    <p>Premium Redfinger Code Store with instant delivery and secure payment.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="products.html">Products</a>
+                    <a href="cart.html">Cart</a>
+                    <a href="help.html">Help</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="#">Payment Methods</a>
+                    <a href="#">Refund Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@loukys.store</p>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Support</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loukys Store. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fas fa-qrcode" title="QRIS"></i>
+                    <i class="fas fa-university" title="Bank Transfer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Remove Item Modal -->
+    <div id="remove-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-trash"></i> Remove Item</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to remove this item from your cart?</p>
+                <div class="modal-actions">
+                    <button class="btn btn-danger" id="confirm-remove">
+                        Yes, Remove
+                    </button>
+                    <button class="btn btn-outline modal-close">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
