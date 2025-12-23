@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loukys Store - Redfinger Code Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>LOUKYS</span>STORE
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html"><i class="fas fa-shopping-bag"></i> Products</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="#"><i class="fas fa-phone"></i> Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="user-dropdown">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Guest</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                        <hr>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="admin.html" class="admin-only"><i class="fas fa-crown"></i> Admin Panel</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">PREMIUM</span> REDFINGER CODES
+                </h1>
+                <p class="hero-subtitle">
+                    Instant Delivery • Secure Payment • 100% Guaranteed
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h3>15,000+</h3>
+                            <p>Codes Delivered</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h3>5,000+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>100%</h3>
+                            <p>Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="products.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-shopping-cart"></i>
+                    SHOP NOW
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hero-redfinger.png" alt="Redfinger VIP">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose <span class="highlight">Loukys Store?</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Instant Delivery</h3>
+                    <p>Get your code instantly after payment confirmation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Payment</h3>
+                    <p>QRIS, Bank Transfer, E-Wallet with encryption</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Always available to help you anytime</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-badge-check"></i>
+                    </div>
+                    <h3>100% Guarantee</h3>
+                    <p>Money back guarantee if code doesn't work</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Featured <span class="highlight">Products</span></h2>
+            <div class="products-grid" id="featured-products">
+                <!-- Products loaded by JS -->
+            </div>
+            <div class="text-center">
+                <a href="products.html" class="btn btn-outline">
+                    <i class="fas fa-eye"></i>
+                    VIEW ALL PRODUCTS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It <span class="highlight">Works</span></h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Select Product</h3>
+                        <p>Choose your desired Redfinger package</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Complete Payment</h3>
+                        <p>Pay via QRIS, Bank Transfer, or E-Wallet</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Code Instantly</h3>
+                        <p>Receive your code in dashboard immediately</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Enjoy VIP Access</h3>
+                        <p>Use code in Redfinger app and enjoy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our <span class="highlight">Customers Say</span></h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Code delivered in less than 1 minute! Very fast and reliable service.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/avatar1.jpg" alt="Customer">
+                        <div>
+                            <h4>John Gaming</h4>
+                            <p>VIP 30 Days User</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Best Redfinger code seller! Always in stock and instant delivery.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/avatar2.jpg" alt="Customer">
+                        <div>
+                            <h4>Sarah Player</h4>
+                            <p>VIP 7 Days User</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Premium Access?</h2>
+                <p>Join thousands of satisfied customers today</p>
+                <a href="products.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-shopping-cart"></i>
+                    SHOP NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-gamepad"></i>
+                        <span>LOUKYS</span>STORE
+                    </a>
+                    <p>Premium Redfinger Code Store with instant delivery and secure payment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="products.html">Products</a>
+                    <a href="#">How to Buy</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="#">Help Center</a>
+                    <a href="#">Payment Methods</a>
+                    <a href="#">Refund Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@loukys.store</p>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Support</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loukys Store. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fas fa-qrcode" title="QRIS"></i>
+                    <i class="fas fa-university" title="Bank Transfer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+  </html>
